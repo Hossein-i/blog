@@ -4,7 +4,7 @@ const HeroHeaderContainer = () => {
   return (
     <section className="bg-blue-900 text-white">
       <div className="grid md:grid-cols-2 md:grid-flow-dense md:items-end md:justify-items-center max-w-screen-2xl mx-auto">
-        <div className="p-4 md:p-10">
+        <div className="p-4 pt-12 md:p-10">
           <p className="text-xl">سلام خوش اومدی، </p>
           <h1 className="text-6xl font-bold text-blue-600 mb-6">
             من حسین هستم

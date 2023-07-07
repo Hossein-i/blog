@@ -1,11 +1,11 @@
 import Link from "next/link";
-import { PostMetadata } from "../../utils/getDocsMetadata";
+import { ArticleMetadata } from "../../utils/getDocsMetadata";
 import Image from "next/image";
 
-const PostPreviewsComponent = (props: PostMetadata) => {
+const ArticlePreviewsComponent = (props: ArticleMetadata) => {
   return (
     <div>
-      <Link href={`/posts/${props.slug}`}>
+      <Link href={`/articles/${props.slug}`}>
         <Image src={props.image} alt={props.title} />
         <h2>{props.title}</h2>
         <p>{props.description}</p>
@@ -15,4 +15,4 @@ const PostPreviewsComponent = (props: PostMetadata) => {
   );
 };
 
-export default PostPreviewsComponent;
+export default ArticlePreviewsComponent;
