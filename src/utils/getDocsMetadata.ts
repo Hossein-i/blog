@@ -6,18 +6,22 @@ export interface DocMetadata {
   slug: string;
 }
 
-export interface PostMetadata {
+export interface ArticleMetadata {
   image: string;
   title: string;
-  date: string;
   description: string;
+  author: string;
+  avatar: string;
+  date: string;
+  timeToRead: string;
   slug: string;
 }
 export interface CategoryMetadata {
   image: string;
   title: string;
-  date: string;
   description: string;
+  background: string;
+  color: string;
   slug: string;
 }
 
@@ -38,13 +42,16 @@ const getDocsMetadata = (folder: string): DocMetadata[] => {
   return docs;
 };
 
-const getPostsMetadata = (): PostMetadata[] => {
-  return getDocsMetadata("posts").map((doc) => {
+const getArticlesMetadata = (): ArticleMetadata[] => {
+  return getDocsMetadata("articles").map((doc) => {
     return {
       image: doc.data.image,
       title: doc.data.title,
-      date: doc.data.date,
       description: doc.data.description,
+      author: doc.data.author,
+      avatar: doc.data.avatar,
+      date: doc.data.date,
+      timeToRead: doc.data.timeToRead,
       slug: doc.slug,
     };
   });
@@ -55,12 +62,13 @@ const getCategoriesMetadata = (): CategoryMetadata[] => {
     return {
       image: doc.data.image,
       title: doc.data.title,
-      date: doc.data.date,
       description: doc.data.description,
+      background: doc.data.background,
+      color: doc.data.color,
       slug: doc.slug,
     };
   });
 };
 
 export default getDocsMetadata;
-export { getPostsMetadata, getCategoriesMetadata };
+export { getArticlesMetadata, getCategoriesMetadata };

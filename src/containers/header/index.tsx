@@ -8,7 +8,7 @@ const HeaderContainer = () => {
   const [show, setShow] = useState(false);
 
   return (
-    <header className="bg-blue-50 fixed top-0 start-0 w-full">
+    <header className="bg-white fixed top-0 start-0 w-full">
       <div className="max-w-screen-2xl mx-auto md:px-12 md:py-4 flex justify-between items-center">
         <div className="flex items-center">
           <button
@@ -59,7 +59,7 @@ const HeaderContainer = () => {
         <div
           className={`${
             show ? "block" : "hidden"
-          } fixed top-0 start-0 -z-10 w-screen h-screen bg-blue-50 md:block md:w-auto md:h-auto md:z-10 md:relative`}
+          } fixed top-0 start-0 -z-10 w-screen h-screen bg-white md:block md:w-auto md:h-auto md:z-10 md:relative`}
         >
           <nav className="w-full h-full grid items-center">
             <ul className="flex flex-col items-center md:flex-row">

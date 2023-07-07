@@ -14,7 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fa" dir="rtl" data-mode="dark">
-      <body className="">
+      <body className="bg-gray-200">
         <HeaderContainer />
         <main className="pt-16 md:pt-24">{children}</main>
         <FooterContainer />
