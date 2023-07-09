@@ -14,6 +14,7 @@ export interface ArticleMetadata {
   avatar: string;
   date: Date;
   timeToRead: string;
+  category: string;
   slug: string;
 }
 export interface CategoryMetadata {
@@ -53,6 +54,7 @@ const getArticlesMetadata = (): ArticleMetadata[] => {
       avatar: doc.data.avatar,
       date: doc.data.date,
       timeToRead: doc.data.timeToRead,
+      category: doc.data.category,
       slug: doc.slug,
     };
   });

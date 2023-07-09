@@ -2,6 +2,25 @@ import Markdown from "markdown-to-jsx";
 import { getArticlesMetadata } from "@/utils/getDocsMetadata";
 import getDocContent from "@/utils/getDocContent";
 import Image from "next/image";
+import { Metadata, ResolvingMetadata } from "next";
+
+type Props = {
+  params: { slug: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export async function generateMetadata(
+  { params, searchParams }: Props,
+  parent?: ResolvingMetadata
+): Promise<Metadata> {
+  const slug = params.slug;
+  const article = getDocContent("articles", slug);
+
+  return {
+    title: article.data.title,
+    description: article.data.description,
+  };
+}
 
 export const generateStaticParams = async () => {
   return getArticlesMetadata().map((article) => ({ slug: article.slug }));
