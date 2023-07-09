@@ -1,4 +1,3 @@
-import ArticlePreviewsComponent from "@/components/post-previews";
 import HeroHeaderContainer from "@/containers/hero-header";
 import {
   getArticlesMetadata,
