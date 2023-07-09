@@ -1,9 +1,13 @@
+import { Metadata } from "next";
 import HeaderContainer from "@/containers/header";
 import FooterContainer from "@/containers/footer";
 import "./globals.css";
 
-export const metadata = {
-  title: "حسین-ی",
+export const metadata: Metadata = {
+  title: {
+    template: "%s | Hossein-i",
+    default: "Hossein-i",
+  },
   description: "",
 };
 

@@ -1,11 +1,22 @@
 "use client";
 
+import NavigationComponent from "@/components/navigation";
 import ThemeButtonComponent from "@/components/theme-button";
 import Link from "next/link";
 import { useState } from "react";
 
 const HeaderContainer = () => {
   const [show, setShow] = useState(false);
+  const navLinks: { name: string; href: string }[] = [
+    {
+      name: "دسته بندی ها",
+      href: "/categories",
+    },
+    {
+      name: "درباره من",
+      href: "/about-me",
+    },
+  ];
 
   return (
     <header className="bg-white fixed top-0 start-0 w-full">
@@ -49,9 +60,7 @@ const HeaderContainer = () => {
           </button>
           <p className="font-bold text-xs lg:text-base">
             <Link href="/">
-              <span className="text-xl lg:text-4xl">
-                Hossein-i
-              </span>
+              <span className="text-xl lg:text-4xl">Hossein-i</span>
               .ir
             </Link>
           </p>
@@ -61,34 +70,7 @@ const HeaderContainer = () => {
             show ? "block" : "hidden"
           } fixed top-0 start-0 -z-10 w-screen h-screen bg-white md:block md:w-auto md:h-auto md:z-10 md:relative`}
         >
-          <nav className="w-full h-full grid items-center">
-            <ul className="flex flex-col items-center md:flex-row">
-              <li>
-                <Link
-                  className="block p-2 font-semibold hover:underline"
-                  href="/"
-                >
-                  خانه
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="block p-2 font-semibold hover:underline"
-                  href="/categories"
-                >
-                  دسته بندی ها
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="block p-2 font-semibold hover:underline"
-                  href="/about-me"
-                >
-                  درباره من
-                </Link>
-              </li>
-            </ul>
-          </nav>
+          <NavigationComponent navLinks={navLinks} />
         </div>
         <div>
           <button className="p-4">
