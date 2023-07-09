@@ -12,11 +12,12 @@ export interface ArticleMetadata {
   description: string;
   author: string;
   avatar: string;
-  date: string;
+  date: Date;
   timeToRead: string;
   slug: string;
 }
 export interface CategoryMetadata {
+  index: number;
   image: string;
   title: string;
   description: string;
@@ -60,6 +61,7 @@ const getArticlesMetadata = (): ArticleMetadata[] => {
 const getCategoriesMetadata = (): CategoryMetadata[] => {
   return getDocsMetadata("categories").map((doc) => {
     return {
+      index: doc.data.index,
       image: doc.data.image,
       title: doc.data.title,
       description: doc.data.description,

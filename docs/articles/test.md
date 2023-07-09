@@ -1,6 +1,14 @@
 ---
-title: تست
-description: 
-date: 2000
+image: /images/articles/tailwind-ui.jpg
+title: عنوان عنوان عنوان عنوان عنوان عنوان عنوان عنوان عنوان عنوان عنوان عنوان عنوان عنوان عنوان عنوان عنوان عنوان
+description: توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات
+author: حسین
+avatar: /images/avatar.png
+date: 2022-02-21
+timeToRead: 5 دقیقه
+category: tailwind-css, javascript
 ---
+
 ## سلام
+
+![](/images/articles/tailwind-ui.jpg)
