@@ -6,9 +6,9 @@ const FooterContainer = () => {
     <footer className="bg-black text-white">
       <div className="max-w-screen-2xl mx-auto py-10 px-4 grid gap-10 lg:grid-cols-3">
         <div>
-          <p className="text-center text-blue-600 font-bold">
+          <p className="text-center font-bold">
             <Link href="/">
-              <span className="text-blue-900 text-4xl">Hossein-i</span>.ir
+              <span className="text-4xl">Hossein-i</span>.ir
             </Link>
           </p>
           <p className="text-center">Web Developer</p>

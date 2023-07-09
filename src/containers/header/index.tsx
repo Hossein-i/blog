@@ -47,9 +47,9 @@ const HeaderContainer = () => {
               </svg>
             )}
           </button>
-          <p className="text-blue-600 font-bold text-xs lg:text-base">
+          <p className="font-bold text-xs lg:text-base">
             <Link href="/">
-              <span className="text-blue-900 text-xl lg:text-4xl">
+              <span className="text-xl lg:text-4xl">
                 Hossein-i
               </span>
               .ir

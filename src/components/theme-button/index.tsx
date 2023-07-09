@@ -1,6 +1,5 @@
 const ThemeButtonComponent = () => {
-  const theme = "";
-  // localStorage.getItem("theme");
+  // const theme = localStorage.getItem("theme");
 
   const sunIcon = (
     <svg
@@ -55,7 +54,7 @@ const ThemeButtonComponent = () => {
 
   return (
     <button className="p-4" onClick={handleClick}>
-      {!theme ? systemIcon : <>{theme === "dark" ? moonIcon : sunIcon}</>}
+      {sunIcon}
     </button>
   );
 };
