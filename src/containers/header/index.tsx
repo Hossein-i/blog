@@ -4,19 +4,11 @@ import NavigationComponent from "@/components/navigation";
 import ThemeButtonComponent from "@/components/theme-button";
 import Link from "next/link";
 import { useState } from "react";
+import { HeaderLinks } from "../../../data/links";
 
 const HeaderContainer = () => {
   const [show, setShow] = useState(false);
-  const navLinks: { name: string; href: string }[] = [
-    {
-      name: "دسته بندی ها",
-      href: "/categories",
-    },
-    {
-      name: "درباره من",
-      href: "/about-me",
-    },
-  ];
+  const navLinks = HeaderLinks.filter((link) => link.title === "نویگیشن")[0];
 
   return (
     <header className="bg-white fixed top-0 start-0 w-full">

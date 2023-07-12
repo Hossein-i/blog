@@ -1,3 +1,10 @@
+import ArticleCardComponent from "@/components/article-card";
+import ArticleCardsComponent from "@/components/article-cards";
+import Section from "@/components/section";
+import {
+  getArticlesMetadataByCategory,
+  getCategoryMetadata,
+} from "@/utils/getDocsMetadata";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -6,7 +13,20 @@ export const metadata: Metadata = {
 };
 
 const ArticlesPage = () => {
-  return <></>;
+  const articlesMetadata = getArticlesMetadataByCategory("");
+
+  return (
+    <Section className="pt-14 md:pt-28 bg-white">
+      <Section.SectionWrapperComponent>
+        <Section.SectionHeaderComponent title="آخرین مقالات" />
+        <ArticleCardsComponent>
+          {articlesMetadata.map((article) => (
+            <ArticleCardComponent key={article.slug} {...article} />
+          ))}
+        </ArticleCardsComponent>
+      </Section.SectionWrapperComponent>
+    </Section>
+  );
 };
 
 export default ArticlesPage;

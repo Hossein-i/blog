@@ -14,7 +14,7 @@ export interface ArticleMetadata {
   avatar: string;
   date: Date;
   timeToRead: string;
-  category: string;
+  categories: string[];
   slug: string;
 }
 export interface CategoryMetadata {
@@ -44,9 +44,10 @@ const getDocsMetadata = (folder: string): DocMetadata[] => {
   return docs;
 };
 
-const getArticlesMetadata = (): ArticleMetadata[] => {
-  return getDocsMetadata("articles").map((doc) => {
-    return {
+const getArticlesMetadata = (): ArticleMetadata[] =>
+  getDocsMetadata("articles")
+    .sort((a, b) => (new Date(a.data.date) < new Date(b.data.date) ? 1 : -1))
+    .map((doc) => ({
       image: doc.data.image,
       title: doc.data.title,
       description: doc.data.description,
@@ -54,15 +55,22 @@ const getArticlesMetadata = (): ArticleMetadata[] => {
       avatar: doc.data.avatar,
       date: doc.data.date,
       timeToRead: doc.data.timeToRead,
-      category: doc.data.category,
+      categories: doc.data.categories,
       slug: doc.slug,
-    };
-  });
-};
+    }));
 
-const getCategoriesMetadata = (): CategoryMetadata[] => {
-  return getDocsMetadata("categories").map((doc) => {
-    return {
+const getArticleMetadata = (slug: string): ArticleMetadata =>
+  getArticlesMetadata().filter((doc) => doc.slug.includes(slug))[0];
+
+const getArticlesMetadataByCategory = (category: string) =>
+  getArticlesMetadata().filter((article) =>
+    category === "" ? article : article.categories.includes(category)
+  );
+
+const getCategoriesMetadata = (): CategoryMetadata[] =>
+  getDocsMetadata("categories")
+    .sort((a, b) => (a.data.index > b.data.index ? 1 : -1))
+    .map((doc) => ({
       index: doc.data.index,
       image: doc.data.image,
       title: doc.data.title,
@@ -70,9 +78,16 @@ const getCategoriesMetadata = (): CategoryMetadata[] => {
       background: doc.data.background,
       color: doc.data.color,
       slug: doc.slug,
-    };
-  });
-};
+    }));
+
+const getCategoryMetadata = (slug: string): CategoryMetadata =>
+  getCategoriesMetadata().filter((doc) => doc.slug.includes(slug))[0];
 
 export default getDocsMetadata;
-export { getArticlesMetadata, getCategoriesMetadata };
+export {
+  getArticlesMetadata,
+  getArticleMetadata,
+  getArticlesMetadataByCategory,
+  getCategoriesMetadata,
+  getCategoryMetadata,
+};

@@ -5,31 +5,23 @@ import CategoryCardsComponent from "@/components/category-cards";
 import Section from "@/components/section";
 import HeroHeaderContainer from "@/containers/hero-header";
 import {
-  getArticlesMetadata,
+  getArticlesMetadataByCategory,
   getCategoriesMetadata,
 } from "@/utils/getDocsMetadata";
-import Image from "next/image";
-import Link from "next/link";
 
 const HomePage = () => {
   const categoriesMetadata = getCategoriesMetadata();
-  const articlesMetadata = getArticlesMetadata();
 
   const categoryCards = () => (
     <CategoryCardsComponent>
-      {categoriesMetadata
-        .sort((a, b) => (a.index > b.index ? 1 : -1))
-        .slice(0, 4)
-        .map((category) => (
-          <CategoryCardComponent key={category.slug} {...category} />
-        ))}
+      {categoriesMetadata.slice(0, 4).map((category) => (
+        <CategoryCardComponent key={category.slug} {...category} />
+      ))}
     </CategoryCardsComponent>
   );
   const articleCards = (category: string) => (
     <ArticleCardsComponent>
-      {articlesMetadata
-        .filter((article) => article.category.includes(category))
-        .sort((a, b) => (new Date(a.date) < new Date(b.date) ? 1 : -1))
+      {getArticlesMetadataByCategory(category)
         .slice(0, 4)
         .map((article) => (
           <ArticleCardComponent key={article.slug} {...article} />
@@ -39,16 +31,17 @@ const HomePage = () => {
   const articleSections = () => (
     <>
       {categoriesMetadata
-        .sort((a, b) => (a.index > b.index ? 1 : -1))
         .slice(0, 4)
         .map((category) => (
           <Section key={category.slug}>
-            <Section.SectionHeaderComponent
-              title={category.title}
-              link={`/articles?filter=${category.slug}`}
-              linkTitle="دیدن همه مقالات"
-            />
-            {articleCards(category.slug)}
+            <Section.SectionWrapperComponent>
+              <Section.SectionHeaderComponent
+                title={category.title}
+                link={`/categories/${category.slug}`}
+                linkTitle="دیدن همه مقالات"
+              />
+              {articleCards(category.slug)}
+            </Section.SectionWrapperComponent>
           </Section>
         ))}
     </>
@@ -57,22 +50,26 @@ const HomePage = () => {
   return (
     <>
       <HeroHeaderContainer />
-      <Section className="mb-20">
-        <Section.SectionHeaderComponent
-          title="مرور دسته ها"
-          link="/categories"
-          linkTitle="دیدن همه دسته ها"
-        />
-        {categoryCards()}
+      <Section className="py-10">
+        <Section.SectionWrapperComponent>
+          <Section.SectionHeaderComponent
+            title="مرور دسته ها"
+            link="/categories"
+            linkTitle="دیدن همه دسته ها"
+          />
+          {categoryCards()}
+        </Section.SectionWrapperComponent>
       </Section>
       <section className="mb-20 bg-white">
         <Section>
-          <Section.SectionHeaderComponent
-            title="آخرین مقالات"
-            link="/articles"
-            linkTitle="دیدن همه مقالات"
-          />
-          {articleCards("")}
+          <Section.SectionWrapperComponent>
+            <Section.SectionHeaderComponent
+              title="آخرین مقالات"
+              link="/articles"
+              linkTitle="دیدن همه مقالات"
+            />
+            {articleCards("")}
+          </Section.SectionWrapperComponent>
         </Section>
         {articleSections()}
       </section>

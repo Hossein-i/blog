@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang="fa" dir="rtl" data-mode="dark">
       <body className="bg-gray-200">
         <HeaderContainer />
-        <main className="pt-14 md:pt-20">{children}</main>
+        <main>{children}</main>
         <FooterContainer />
       </body>
     </html>
