@@ -43,13 +43,11 @@ const FooterLinks: Links[] = [
         name: "GitHub",
         href: "https://github.com/Hossein-i",
         target: "_blank",
-        icon: "/icons/github.svg",
       },
       {
         name: "LinkedIn",
         href: "https://www.linkedin.com/in/hossein-i/",
         target: "_blank",
-        icon: "/icons/linkedin.svg",
       },
     ],
   },

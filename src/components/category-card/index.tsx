@@ -7,10 +7,10 @@ const CategoryCardComponent = (category: CategoryMetadata) => {
     <Link
       key={category.slug}
       href={`/categories/${category.slug}`}
-      className={`bg-white px-4 py-16 rounded-2xl hover:bg-black hover:text-white transition`}
+      className={`bg-white shadow px-4 py-16 rounded-lg hover:bg-black hover:text-white transition`}
     >
       <Image
-        className="w-16 h-16 object-contain p-2 mb-4 rounded-xl bg-white"
+        className="w-16 h-16 object-contain p-2 mb-4 rounded-lg bg-white"
         src={category.image}
         alt={category.title}
         width={56}

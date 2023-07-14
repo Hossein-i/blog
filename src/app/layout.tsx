@@ -18,10 +18,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fa" dir="rtl" data-mode="dark">
-      <body className="bg-gray-200">
+      <body className="relative bg-slate-200 max-w-screen-xl mx-auto h-screen overflow-hidden flex">
         <HeaderContainer />
-        <main>{children}</main>
-        <FooterContainer />
+        <div className="flex-auto overflow-y-auto pt-24 px-2 pb-2 md:pt-2 md:ps-0">
+          <main>{children}</main>
+          <FooterContainer />
+        </div>
       </body>
     </html>
   );

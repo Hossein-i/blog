@@ -24,43 +24,41 @@ const HomePage = () => {
       {getArticlesMetadataByCategory(category)
         .slice(0, 4)
         .map((article) => (
-          <ArticleCardComponent key={article.slug} {...article} />
+          <ArticleCardComponent key={article.slug} article={article} />
         ))}
     </ArticleCardsComponent>
   );
   const articleSections = () => (
     <>
-      {categoriesMetadata
-        .slice(0, 4)
-        .map((category) => (
-          <Section key={category.slug}>
-            <Section.SectionWrapperComponent>
-              <Section.SectionHeaderComponent
-                title={category.title}
-                link={`/categories/${category.slug}`}
-                linkTitle="دیدن همه مقالات"
-              />
-              {articleCards(category.slug)}
-            </Section.SectionWrapperComponent>
-          </Section>
-        ))}
+      {categoriesMetadata.slice(0, 4).map((category) => (
+        <Section key={category.slug}>
+          <Section.SectionWrapperComponent>
+            <Section.SectionHeaderComponent
+              title={category.title}
+              link={`/categories/${category.slug}`}
+              linkTitle="دیدن همه مقالات"
+            />
+            {articleCards(category.slug)}
+          </Section.SectionWrapperComponent>
+        </Section>
+      ))}
     </>
   );
 
   return (
     <>
-      <HeroHeaderContainer />
-      <Section className="py-10">
-        <Section.SectionWrapperComponent>
-          <Section.SectionHeaderComponent
-            title="مرور دسته ها"
-            link="/categories"
-            linkTitle="دیدن همه دسته ها"
-          />
-          {categoryCards()}
-        </Section.SectionWrapperComponent>
-      </Section>
-      <section className="mb-20 bg-white">
+      <>
+        <HeroHeaderContainer />
+        <Section className="py-10">
+          <Section.SectionWrapperComponent>
+            <Section.SectionHeaderComponent
+              title="مرور دسته ها"
+              link="/categories"
+              linkTitle="دیدن همه دسته ها"
+            />
+            {categoryCards()}
+          </Section.SectionWrapperComponent>
+        </Section>
         <Section>
           <Section.SectionWrapperComponent>
             <Section.SectionHeaderComponent
@@ -72,7 +70,7 @@ const HomePage = () => {
           </Section.SectionWrapperComponent>
         </Section>
         {articleSections()}
-      </section>
+      </>
     </>
   );
 };
