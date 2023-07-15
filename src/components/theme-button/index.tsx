@@ -53,7 +53,7 @@ const ThemeButtonComponent = () => {
   const handleClick = () => {};
 
   return (
-    <button className="p-4" onClick={handleClick}>
+    <button className="p-4 bg-slate-200 rounded-lg" onClick={handleClick}>
       {sunIcon}
     </button>
   );

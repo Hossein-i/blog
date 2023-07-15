@@ -21,7 +21,10 @@ const CategoryPage = (props: any) => {
   const articleCards = () => (
     <ArticleCardsComponent>
       {articlesMetadata.map((articleMetadata) => (
-        <ArticleCardComponent key={articleMetadata.slug} {...articleMetadata} />
+        <ArticleCardComponent
+          key={articleMetadata.slug}
+          article={articleMetadata}
+        />
       ))}
     </ArticleCardsComponent>
   );

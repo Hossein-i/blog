@@ -21,7 +21,7 @@ const ArticlesPage = () => {
         <Section.SectionHeaderComponent title="آخرین مقالات" />
         <ArticleCardsComponent>
           {articlesMetadata.map((article) => (
-            <ArticleCardComponent key={article.slug} {...article} />
+            <ArticleCardComponent key={article.slug} article={article} />
           ))}
         </ArticleCardsComponent>
       </Section.SectionWrapperComponent>

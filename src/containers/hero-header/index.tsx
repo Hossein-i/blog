@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const HeroHeaderContainer = () => {
   return (
-    <section className="bg-white pt-20 md:pt-40">
+    <section className="bg-white shadow rounded-lg md:pt-20">
       <div className="grid md:grid-cols-2 md:grid-flow-dense md:items-end md:justify-items-center md: max-w-screen-2xl mx-auto">
         <div className="p-4 pt-8 md:p-10">
           <p className="text-xl">سلام خوش اومدی، </p>

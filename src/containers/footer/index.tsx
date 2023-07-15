@@ -77,7 +77,7 @@ const FooterContainer = () => {
   );
 
   return (
-    <footer className="bg-black text-white">
+    <footer className="bg-black text-white rounded-lg">
       <div className="max-w-screen-2xl mx-auto py-10 px-4 grid gap-10 lg:grid-cols-3">
         <div>
           <p className="text-center font-bold">
