@@ -16,8 +16,8 @@ const ArticlesPage = () => {
   const articlesMetadata = getArticlesMetadataByCategory("");
 
   return (
-    <Section className="pt-14 md:pt-28 bg-white">
-      <Section.SectionWrapperComponent>
+    <Section>
+      <Section.SectionWrapperComponent className="pt-2 md:pt-4">
         <Section.SectionHeaderComponent title="آخرین مقالات" />
         <ArticleCardsComponent>
           {articlesMetadata.map((article) => (

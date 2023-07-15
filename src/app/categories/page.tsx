@@ -7,8 +7,8 @@ const CategoriesPage = () => {
   const categoriesMetadata = getCategoriesMetadata();
 
   return (
-    <Section className="pt-14 md:pt-28">
-      <Section.SectionWrapperComponent>
+    <Section>
+      <Section.SectionWrapperComponent className="pt-2 md:pt-4">
         <Section.SectionHeaderComponent title="دسته بندی ها" />
         <CategoryCardsComponent>
           {categoriesMetadata
