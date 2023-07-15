@@ -17,11 +17,7 @@ const SectionWrapperComponent = ({
   className?: string;
   children: any;
 }) => {
-  const defaultClassName = "pt-8 max-w-screen-2xl mx-auto";
-
-  return (
-    <div className={[defaultClassName, className].join(" ")}>{children}</div>
-  );
+  return <div className={className}>{children}</div>;
 };
 
 const SectionHeaderComponent = ({
@@ -66,4 +62,7 @@ const SectionHeaderComponent = ({
   );
 };
 
-export default Object.assign(SectionComponent, {SectionWrapperComponent, SectionHeaderComponent });
+export default Object.assign(SectionComponent, {
+  SectionWrapperComponent,
+  SectionHeaderComponent,
+});

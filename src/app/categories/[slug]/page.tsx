@@ -3,7 +3,6 @@ import {
   getCategoriesMetadata,
   getCategoryMetadata,
 } from "@/utils/getDocsMetadata";
-import getDocContent from "@/utils/getDocContent";
 import Image from "next/image";
 import ArticleCardComponent from "@/components/article-card";
 import ArticleCardsComponent from "@/components/article-cards";
@@ -30,26 +29,29 @@ const CategoryPage = (props: any) => {
   );
 
   return (
-    <Section className="pt-14 md:pt-28">
-      <Section className="">
-        <Section.SectionWrapperComponent>
-          <Image
-            src={category.image}
-            alt={category.title}
-            width={56}
-            height={56}
-          />
-          <h1>{category.title}</h1>
-          <p>{category.description}</p>
+    <>
+      <Section>
+        <Section.SectionWrapperComponent className="bg-black text-white rounded-lg p-4">
+          <div className="grid justify-items-center gap-4 max-w-screen-sm mx-auto">
+            <Image
+              src={category.image}
+              alt={category.title}
+              width={112}
+              height={112}
+              className="bg-white rounded-xl p-2"
+            />
+            <h1 className="text-6xl font-bold mb-6">{category.title}</h1>
+            <p>{category.description}</p>
+          </div>
         </Section.SectionWrapperComponent>
       </Section>
-      <Section className="bg-white">
-        <Section.SectionWrapperComponent>
+      <Section>
+        <Section.SectionWrapperComponent className="pt-8">
           <Section.SectionHeaderComponent title={category.title} />
           {articleCards()}
         </Section.SectionWrapperComponent>
       </Section>
-    </Section>
+    </>
   );
 };
 

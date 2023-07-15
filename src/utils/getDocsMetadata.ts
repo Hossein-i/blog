@@ -3,6 +3,7 @@ import matter from "gray-matter";
 
 export interface DocMetadata {
   data: any;
+  content: string;
   slug: string;
 }
 
@@ -10,11 +11,10 @@ export interface ArticleMetadata {
   image: string;
   title: string;
   description: string;
-  author: string;
-  avatar: string;
   date: Date;
   timeToRead: string;
   categories: string[];
+  content: string;
   slug: string;
 }
 export interface CategoryMetadata {
@@ -35,8 +35,10 @@ const getDocsMetadata = (folder: string): DocMetadata[] => {
   const docs = markdownFiles.map((fileName) => {
     const fileContent = readFileSync(`${path}${fileName}`, "utf-8");
     const matterResult = matter(fileContent);
+
     return {
       data: matterResult.data,
+      content: matterResult.content,
       slug: fileName.replace(".md", ""),
     };
   });
@@ -51,11 +53,10 @@ const getArticlesMetadata = (): ArticleMetadata[] =>
       image: doc.data.image,
       title: doc.data.title,
       description: doc.data.description,
-      author: doc.data.author,
-      avatar: doc.data.avatar,
       date: doc.data.date,
       timeToRead: doc.data.timeToRead,
       categories: doc.data.categories,
+      content: doc.content,
       slug: doc.slug,
     }));
 
