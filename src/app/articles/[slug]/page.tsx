@@ -32,17 +32,17 @@ const ArticlePage = (props: any) => {
     <Section>
       <Section.SectionWrapperComponent className="pt-0 pb-2">
         <div className="">
-          <article className="prose lg:prose-xl max-w-none prose-img:rounded-lg">
-            <div className="bg-white p-4 mb-4 rounded-lg grid text-center">
+          <article className="prose lg:prose-xl max-w-none prose-img:rounded-lg dark:prose-headings:text-white dark:prose-p:text-slate-500">
+            <div className="bg-white dark:bg-slate-800 p-4 mb-4 rounded-lg grid text-center">
               <div>
                 <h1>{article.title}</h1>
                 <p>{article.description}</p>
                 <div className="flex justify-center items-center gap-2">
-                  <span>{article.timeToRead}</span>
+                  <p>{article.timeToRead}</p>
                   <span className="p-1 bg-slate-500 rounded-full"></span>
-                  <span>
+                  <p>
                     {new Date(article.date).toDateString().slice(0, 11)}
-                  </span>
+                  </p>
                 </div>
               </div>
               <div>
@@ -55,7 +55,7 @@ const ArticlePage = (props: any) => {
                 />
               </div>
             </div>
-            <div className="bg-white p-4 rounded-lg">
+            <div className="bg-white dark:bg-slate-800 p-4 rounded-lg">
               <Markdown>{article.content}</Markdown>
             </div>
           </article>

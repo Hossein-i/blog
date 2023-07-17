@@ -31,7 +31,7 @@ const SectionHeaderComponent = ({
 }) => {
   return (
     <div className="flex justify-between items-center px-2 md:px-4">
-      <h2 className="flex items-center gap-2 text-lg md:text-xl lg:text-2xl font-bold after:content-[''] after:w-8 after:h-[1px] after:bg-black">
+      <h2 className="flex items-center gap-2 text-lg md:text-xl lg:text-2xl font-bold after:content-[''] after:w-8 after:h-[1px] after:bg-black dark:after:bg-white">
         {title}
       </h2>
       {link && (
