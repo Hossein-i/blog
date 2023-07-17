@@ -11,7 +11,7 @@ const ArticleCardComponent = ({ article }: Props) => {
     <Link
       key={article.slug}
       href={`/articles/${article.slug}`}
-      className="grid md:grid-cols-5 gap-4 bg-white shadow p-4 hover:bg-black hover:text-white transition rounded-lg group"
+      className="grid md:grid-cols-5 gap-4 bg-white dark:bg-slate-800 shadow p-4 hover:bg-slate-200 dark:hover:bg-slate-700 transition rounded-lg group"
     >
       <div className="md:col-span-3 grid gap-2">
         <div className="flex justify-between items-center text-sm text-gray-500">

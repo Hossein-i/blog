@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const HeroHeaderContainer = () => {
   return (
-    <section className="bg-white shadow rounded-lg md:pt-20">
+    <section className="bg-white dark:bg-slate-800 shadow rounded-lg md:pt-20">
       <div className="grid md:grid-cols-2 md:grid-flow-dense md:items-end md:justify-items-center md: max-w-screen-2xl mx-auto">
         <div className="p-4 pt-8 md:p-10">
           <p className="text-xl">سلام خوش اومدی، </p>
@@ -12,7 +12,7 @@ const HeroHeaderContainer = () => {
             در این وبلاگ نکات و ترفندها، فریمورک ها، پروژه ها، آموزش ها و غیره
             را به اشتراک می گذارم.
           </p>
-          <button className="w-1/2 py-4 bg-black text-white font-semibold rounded-2xl">
+          <button className="w-1/2 py-4 bg-slate-200 dark:bg-slate-700 font-semibold rounded-2xl">
             دریافت رزومه
           </button>
         </div>
