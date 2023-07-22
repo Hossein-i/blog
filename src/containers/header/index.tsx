@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { Bars3Icon } from "@heroicons/react/24/outline";
 import { GitHubIcon, LinkedInIcon } from "@/icons";
 import ThemeButtonComponent from "@/components/theme-button";
+import MenuComponent from "@/components/menu";
 
 const HeaderContainer = () => {
   return (
@@ -12,9 +12,7 @@ const HeaderContainer = () => {
         <div className="bg-white dark:bg-slate-800 shadow p-2 rounded-lg flex justify-between items-center md:flex-col md:h-full">
           <div className="flex items-center gap-4 md:flex-col">
             <div>
-              <button className="p-4 bg-slate-200 dark:bg-slate-700 rounded-lg">
-                <Bars3Icon className="w-5 h-5" />
-              </button>
+              <MenuComponent />
             </div>
             <div className="grid md:-rotate-90 md:w-11 whitespace-nowrap">
               <span className="text-xl">حسین حسینی</span>

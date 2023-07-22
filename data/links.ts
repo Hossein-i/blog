@@ -14,7 +14,7 @@ const HeaderLinks: Links[] = [
   {
     title: "نویگیشن",
     links: [
-      { name: "وبلاگ", href: "/" },
+      { name: "مقاله ها", href: "/articles" },
       { name: "دسته بندی ها", href: "/categories" },
       { name: "درباره من", href: "/about-me" },
     ],
