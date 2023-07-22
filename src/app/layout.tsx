@@ -22,7 +22,7 @@ export default function RootLayout({
       <body className="relative bg-slate-200 dark:bg-slate-900 max-w-screen-xl mx-auto h-screen overflow-hidden flex">
         <Providers>
           <HeaderContainer />
-          <div className="flex-auto overflow-y-auto pt-24 px-2 pb-2 md:pt-2 md:ps-0">
+          <div className="flex-auto overflow-y-auto pt-24 px-4 pb-2 md:pt-4 md:ps-0">
             <main>{children}</main>
             <FooterContainer />
           </div>

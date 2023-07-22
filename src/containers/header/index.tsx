@@ -8,7 +8,7 @@ import ThemeButtonComponent from "@/components/theme-button";
 const HeaderContainer = () => {
   return (
     <header className="fixed top-0 inset-x-0 w-full md:sticky md:inset-auto md:w-fit md:h-full">
-      <div className="p-2 md:h-full">
+      <div className="p-4 md:h-full">
         <div className="bg-white dark:bg-slate-800 shadow p-2 rounded-lg flex justify-between items-center md:flex-col md:h-full">
           <div className="flex items-center gap-4 md:flex-col">
             <div>
