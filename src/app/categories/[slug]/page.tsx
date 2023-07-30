@@ -46,7 +46,7 @@ const CategoryPage = (props: any) => {
         </Section.SectionWrapperComponent>
       </Section>
       <Section>
-        <Section.SectionWrapperComponent className="pt-8">
+        <Section.SectionWrapperComponent>
           <Section.SectionHeaderComponent title={category.title} />
           {articleCards()}
         </Section.SectionWrapperComponent>

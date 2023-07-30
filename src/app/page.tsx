@@ -10,13 +10,13 @@ import {
 } from "@/utils/getDocsMetadata";
 
 const HomePage = () => {
-  const categoriesMetadata = getCategoriesMetadata();
-
   const categoryCards = () => (
     <CategoryCardsComponent>
-      {categoriesMetadata.slice(0, 4).map((category) => (
-        <CategoryCardComponent key={category.slug} {...category} />
-      ))}
+      {getCategoriesMetadata()
+        .slice(0, 4)
+        .map((category) => (
+          <CategoryCardComponent key={category.slug} {...category} />
+        ))}
     </CategoryCardsComponent>
   );
   const articleCards = (category: string) => (
@@ -30,47 +30,47 @@ const HomePage = () => {
   );
   const articleSections = () => (
     <>
-      {categoriesMetadata.slice(0, 4).map((category) => (
-        <Section key={category.slug}>
-          <Section.SectionWrapperComponent>
-            <Section.SectionHeaderComponent
-              title={category.title}
-              link={`/categories/${category.slug}`}
-              linkTitle="دیدن همه مقالات"
-            />
-            {articleCards(category.slug)}
-          </Section.SectionWrapperComponent>
-        </Section>
-      ))}
+      <Section>
+        <Section.SectionWrapperComponent>
+          <Section.SectionHeaderComponent
+            title="آخرین مقالات"
+            link="/articles"
+            linkTitle="دیدن همه مقالات"
+          />
+          {articleCards("")}
+        </Section.SectionWrapperComponent>
+      </Section>
+      {getCategoriesMetadata()
+        .slice(0, 4)
+        .map((category) => (
+          <Section key={category.slug}>
+            <Section.SectionWrapperComponent className="py-8">
+              <Section.SectionHeaderComponent
+                title={category.title}
+                link={`/categories/${category.slug}`}
+                linkTitle="دیدن همه مقالات"
+              />
+              {articleCards(category.slug)}
+            </Section.SectionWrapperComponent>
+          </Section>
+        ))}
     </>
   );
 
   return (
     <>
-      <>
-        <HeroHeaderContainer />
-        <Section className="py-10">
-          <Section.SectionWrapperComponent>
-            <Section.SectionHeaderComponent
-              title="مرور دسته ها"
-              link="/categories"
-              linkTitle="دیدن همه دسته ها"
-            />
-            {categoryCards()}
-          </Section.SectionWrapperComponent>
-        </Section>
-        <Section>
-          <Section.SectionWrapperComponent>
-            <Section.SectionHeaderComponent
-              title="آخرین مقالات"
-              link="/articles"
-              linkTitle="دیدن همه مقالات"
-            />
-            {articleCards("")}
-          </Section.SectionWrapperComponent>
-        </Section>
-        {articleSections()}
-      </>
+      <HeroHeaderContainer />
+      <Section>
+        <Section.SectionWrapperComponent>
+          <Section.SectionHeaderComponent
+            title="مرور دسته ها"
+            link="/categories"
+            linkTitle="دیدن همه دسته ها"
+          />
+          {categoryCards()}
+        </Section.SectionWrapperComponent>
+      </Section>
+      {articleSections()}
     </>
   );
 };

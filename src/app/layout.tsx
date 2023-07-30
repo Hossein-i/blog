@@ -19,11 +19,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fa" dir="rtl" suppressHydrationWarning>
-      <body className="relative bg-slate-200 dark:bg-slate-900 max-w-screen-xl mx-auto h-screen overflow-hidden flex">
+      <body className="relative bg-slate-200 dark:bg-slate-900 max-w-screen-xl mx-auto md:flex">
         <Providers>
           <HeaderContainer />
-          <div className="flex-auto overflow-y-auto pt-24 px-4 pb-2 md:pt-4 md:ps-0">
-            <main>{children}</main>
+          <div className="flex-auto px-4 pb-4 md:pt-4 md:ps-0">
+            <main className="pb-4">{children}</main>
             <FooterContainer />
           </div>
         </Providers>

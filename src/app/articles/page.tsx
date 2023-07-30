@@ -17,7 +17,7 @@ const ArticlesPage = () => {
 
   return (
     <Section>
-      <Section.SectionWrapperComponent className="pt-2 md:pt-4">
+      <Section.SectionWrapperComponent className="pt-2 pb-2">
         <Section.SectionHeaderComponent title="آخرین مقالات" />
         <ArticleCardsComponent>
           {articlesMetadata.map((article) => (
