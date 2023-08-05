@@ -2,7 +2,6 @@ interface Link {
   name: string;
   href: string;
   target?: string;
-  icon?: string;
 }
 
 export interface Links {
@@ -10,7 +9,7 @@ export interface Links {
   links: Link[];
 }
 
-const HeaderLinks: Links[] = [
+export const HeaderLinks: Links[] = [
   {
     title: "نویگیشن",
     links: [
@@ -21,7 +20,20 @@ const HeaderLinks: Links[] = [
   },
 ];
 
-const FooterLinks: Links[] = [
+export const SocialMediaLinks: { [key: string]: Link } = {
+  GitHub: {
+    name: "GitHub",
+    href: "https://github.com/Hossein-i",
+    target: "_blank",
+  },
+  LinkedIn: {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/in/hossein-i/",
+    target: "_blank",
+  },
+};
+
+export const FooterLinks: Links[] = [
   {
     title: "درباره من",
     links: [
@@ -53,5 +65,3 @@ const FooterLinks: Links[] = [
     ],
   },
 ];
-
-export { HeaderLinks, FooterLinks };

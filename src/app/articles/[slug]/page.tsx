@@ -30,16 +30,16 @@ const ArticlePage = (props: any) => {
 
   return (
     <Section>
-      <Section.SectionWrapperComponent className="py-0">
+      <Section.SectionWrapperComponent className="pt-0 pb-0">
         <div className="">
-          <article className="prose lg:prose-xl max-w-none prose-img:rounded-lg dark:prose-headings:text-white dark:prose-p:text-slate-500">
+          <article className="max-w-none prose lg:prose-xl prose-img:rounded-lg dark:prose-headings:text-white dark:prose-p:text-slate-500">
             <div className="bg-white dark:bg-slate-800 p-4 mb-4 rounded-lg grid text-center">
               <div>
                 <h1>{article.title}</h1>
                 <p>{article.description}</p>
-                <div className="flex justify-center items-center gap-2">
+                <div className="flex justify-center items-center gap-2 not-prose text-sm">
                   <p>{article.timeToRead}</p>
-                  <span className="p-1 bg-slate-500 rounded-full"></span>
+                  <span className="p-[2px] bg-slate-500 rounded-full"></span>
                   <p>{new Date(article.date).toDateString().slice(0, 11)}</p>
                 </div>
               </div>

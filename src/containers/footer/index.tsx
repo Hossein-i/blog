@@ -1,45 +1,44 @@
 import { getCategoriesMetadata } from "@/utils/getDocsMetadata";
 import Link from "next/link";
-import { FooterLinks } from "../../../data/links";
-import Image from "next/image";
+import { FooterLinks, SocialMediaLinks } from "../../../data/links";
+import Icon from "@/icons";
 
 const FooterContainer = () => {
   const categoriesMetadata = getCategoriesMetadata();
 
-  const socialLinks = () => (
+  const socialMediaLinks = () => (
     <nav className="text-sm">
       <ul className="flex justify-center">
-        {FooterLinks.filter(
-          (item) => item.title === "من رو دنبال کن"
-        )[0].links.map((item) => (
-          <li key={item.name}>
-            <Link className="block p-1" href={item.href} target={item.target}>
-              {item.icon && (
-                <Image src={item.icon} alt={item.name} width={24} height={24} />
-              )}
-            </Link>
-          </li>
-        ))}
+        {FooterLinks.filter((footerItem) =>
+          footerItem.title.includes("من رو دنبال کن")
+        )
+          .at(0)
+          ?.links.map((link) => (
+            <li key={link.href}>
+              <Link className="block p-1" href={link.href} target={link.target}>
+                {Icon(link.name)}
+              </Link>
+            </li>
+          ))}
       </ul>
     </nav>
   );
+
   const categoryLinks = () => (
     <div className="text-center">
       <p className="font-semibold pb-2">دسته بندی ها</p>
       <nav className="text-sm">
         <ul>
-          {categoriesMetadata
-            .slice(0, 4)
-            .map((category) => (
-              <li key={category.slug}>
-                <Link
-                  className="hover:underline block p-1"
-                  href={`/categories/${category.slug}`}
-                >
-                  {category.title}
-                </Link>
-              </li>
-            ))}
+          {categoriesMetadata.slice(0, 4).map((category) => (
+            <li key={category.slug}>
+              <Link
+                className="hover:underline block p-1"
+                href={`/categories/${category.slug}`}
+              >
+                {category.title}
+              </Link>
+            </li>
+          ))}
           <li>
             <Link className="hover:underline block p-1" href="/categories">
               همه دسته بندی ها
@@ -86,7 +85,7 @@ const FooterContainer = () => {
             </Link>
           </p>
           <p className="text-center">Web Developer</p>
-          {socialLinks()}
+          {socialMediaLinks()}
         </div>
         <div className="lg:col-span-2 grid grid-cols-2 md:grid-cols-4 gap-4">
           {categoryLinks()}

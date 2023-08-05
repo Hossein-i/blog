@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { GitHubIcon, LinkedInIcon } from "@/icons";
+import Icon from "@/icons";
 import ThemeButtonComponent from "@/components/theme-button";
 import MenuComponent from "@/components/menu";
+import { FooterLinks } from "../../../data/links";
 
 const HeaderContainer = () => {
   return (
@@ -20,12 +21,20 @@ const HeaderContainer = () => {
             </div>
           </div>
           <div className="hidden md:grid justify-center py-2 w-full bg-slate-200 dark:bg-slate-700 rounded-lg">
-            <Link className="p-2" href="" target="_blank">
-              <GitHubIcon />
-            </Link>
-            <Link className="p-2" href="" target="_blank">
-              <LinkedInIcon />
-            </Link>
+            {FooterLinks.filter((footerItem) =>
+              footerItem.title.includes("من رو دنبال کن")
+            )
+              .at(0)
+              ?.links.map((link) => (
+                <Link
+                  key={link.href}
+                  className="p-2"
+                  href={link.href}
+                  target={link.target}
+                >
+                  {Icon(link.name)}
+                </Link>
+              ))}
           </div>
           <div>
             <ThemeButtonComponent />
