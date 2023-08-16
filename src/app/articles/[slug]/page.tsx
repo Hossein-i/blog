@@ -2,7 +2,7 @@ import Section from "@/components/section";
 import { getArticle, getArticles } from "@/utils/getData";
 import Markdown from "markdown-to-jsx";
 import moment from "moment-jalaali";
-import { Metadata } from "next";
+import { Metadata, ResolvingMetadata } from "next";
 import Image from "next/image";
 
 moment.loadPersian({ dialect: "persian-modern" });
@@ -11,13 +11,35 @@ type Props = {
   params: { slug: string };
 };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata(
+  { params }: Props,
+  parent?: ResolvingMetadata
+): Promise<Metadata> {
   const slug = params.slug;
   const article = getArticle(slug);
+
+  const previousKeywords = (await parent)?.keywords || [];
+  const previousImages = (await parent)?.openGraph?.images || [];
 
   return {
     title: article.title,
     description: article.description,
+    category: article.categories.at(0),
+    keywords: ["", ...previousKeywords],
+    openGraph: {
+      title: article.title,
+      description: article.description,
+      url: `https://hossein-i.ir/articles/${article.slug}`,
+      type: "article",
+      publishedTime: article.date.toISOString(),
+      authors: ["Hossein-i"],
+      images: [article.image, ...previousImages],
+    },
+    twitter: {
+      title: article.title,
+      description: article.description,
+      images: [article.image, ...previousImages],
+    },
   };
 }
 

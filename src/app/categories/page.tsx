@@ -2,6 +2,11 @@ import CategoryCardComponent from "@/components/category-card";
 import CategoryCardsComponent from "@/components/category-cards";
 import Section from "@/components/section";
 import { getCategories } from "@/utils/getData";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "دسته بندی ها",
+};
 
 const CategoriesPage = () => {
   return (

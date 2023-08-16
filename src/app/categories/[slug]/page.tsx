@@ -4,9 +4,44 @@ import Section from "@/components/section";
 import {
   getArticlesByCategory,
   getCategories,
-  getCategory
+  getCategory,
 } from "@/utils/getData";
+import { Metadata, ResolvingMetadata } from "next";
 import Image from "next/image";
+
+type Props = {
+  params: { slug: string };
+};
+
+export async function generateMetadata(
+  { params }: Props,
+  parent?: ResolvingMetadata
+): Promise<Metadata> {
+  const slug = params.slug;
+  const category = getCategory(slug);
+
+  const previousKeywords = (await parent)?.keywords || [];
+  const previousImages = (await parent)?.openGraph?.images || [];
+
+  return {
+    title: category.title,
+    description: category.description,
+    category: category.title,
+    keywords: ["", ...previousKeywords],
+    openGraph: {
+      title: category.title,
+      description: category.description,
+      url: `https://hossein-i.ir/articles/${category.slug}`,
+      type: "website",
+      images: [category.image, ...previousImages],
+    },
+    twitter: {
+      title: category.title,
+      description: category.description,
+      images: [category.image, ...previousImages],
+    },
+  };
+}
 
 export const generateStaticParams = async () => {
   return getCategories().map((category) => ({ slug: category.slug }));
@@ -19,10 +54,7 @@ const CategoryPage = (props: any) => {
   const articleCards = () => (
     <ArticleCardsComponent>
       {getArticlesByCategory(slug).map((article) => (
-        <ArticleCardComponent
-          key={article.slug}
-          article={article}
-        />
+        <ArticleCardComponent key={article.slug} article={article} />
       ))}
     </ArticleCardsComponent>
   );

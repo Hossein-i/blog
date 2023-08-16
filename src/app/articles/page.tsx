@@ -5,8 +5,7 @@ import { getArticlesByCategory } from "@/utils/getData";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "مقالات",
-  description: "",
+  title: "آخرین مقالات",
 };
 
 const ArticlesPage = () => {
