@@ -15,7 +15,7 @@ type Props = {
 
 export async function generateMetadata(
   { params }: Props,
-  parent?: ResolvingMetadata
+  parent: ResolvingMetadata
 ): Promise<Metadata> {
   const slug = params.slug;
   const category = getCategory(slug);
