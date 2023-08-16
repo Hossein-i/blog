@@ -1,8 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
-import { CategoryMetadata } from "@/utils/getData";
+import { ICategory } from "@/utils/interfaces";
 
-const CategoryCardComponent = (category: CategoryMetadata) => {
+const CategoryCardComponent = (category: ICategory) => {
   return (
     <Link
       key={category.slug}
