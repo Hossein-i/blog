@@ -1,10 +1,7 @@
 import ArticleCardComponent from "@/components/article-card";
 import ArticleCardsComponent from "@/components/article-cards";
 import Section from "@/components/section";
-import {
-  getArticlesMetadataByCategory,
-  getCategoryMetadata,
-} from "@/utils/getDocsMetadata";
+import { getArticlesByCategory } from "@/utils/getData";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -13,14 +10,12 @@ export const metadata: Metadata = {
 };
 
 const ArticlesPage = () => {
-  const articlesMetadata = getArticlesMetadataByCategory("");
-
   return (
     <Section>
-      <Section.SectionWrapperComponent className="pt-2 md:pt-4">
+      <Section.SectionWrapperComponent className="pt-2 pb-2">
         <Section.SectionHeaderComponent title="آخرین مقالات" />
         <ArticleCardsComponent>
-          {articlesMetadata.map((article) => (
+          {getArticlesByCategory("").map((article) => (
             <ArticleCardComponent key={article.slug} article={article} />
           ))}
         </ArticleCardsComponent>

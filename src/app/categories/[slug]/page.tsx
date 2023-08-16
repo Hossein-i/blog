@@ -1,28 +1,27 @@
-import {
-  getArticlesMetadataByCategory,
-  getCategoriesMetadata,
-  getCategoryMetadata,
-} from "@/utils/getDocsMetadata";
-import Image from "next/image";
 import ArticleCardComponent from "@/components/article-card";
 import ArticleCardsComponent from "@/components/article-cards";
 import Section from "@/components/section";
+import {
+  getArticlesByCategory,
+  getCategories,
+  getCategory
+} from "@/utils/getData";
+import Image from "next/image";
 
 export const generateStaticParams = async () => {
-  return getCategoriesMetadata().map((category) => ({ slug: category.slug }));
+  return getCategories().map((category) => ({ slug: category.slug }));
 };
 
 const CategoryPage = (props: any) => {
   const slug = props.params.slug;
-  const category = getCategoryMetadata(slug);
-  const articlesMetadata = getArticlesMetadataByCategory(slug);
+  const category = getCategory(slug);
 
   const articleCards = () => (
     <ArticleCardsComponent>
-      {articlesMetadata.map((articleMetadata) => (
+      {getArticlesByCategory(slug).map((article) => (
         <ArticleCardComponent
-          key={articleMetadata.slug}
-          article={articleMetadata}
+          key={article.slug}
+          article={article}
         />
       ))}
     </ArticleCardsComponent>
@@ -46,7 +45,7 @@ const CategoryPage = (props: any) => {
         </Section.SectionWrapperComponent>
       </Section>
       <Section>
-        <Section.SectionWrapperComponent className="pt-8">
+        <Section.SectionWrapperComponent>
           <Section.SectionHeaderComponent title={category.title} />
           {articleCards()}
         </Section.SectionWrapperComponent>

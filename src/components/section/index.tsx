@@ -17,7 +17,7 @@ const SectionWrapperComponent = ({
   className?: string;
   children: any;
 }) => {
-  return <div className={className}>{children}</div>;
+  return <div className={`grid gap-8 py-8 ${className}`}>{children}</div>;
 };
 
 const SectionHeaderComponent = ({
