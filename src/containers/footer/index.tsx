@@ -1,10 +1,10 @@
-import { getCategoriesMetadata } from "@/utils/getDocsMetadata";
-import Link from "next/link";
-import { FooterLinks, SocialMediaLinks } from "../../../data/links";
 import Icon from "@/icons";
+import { getCategories } from "@/utils/getData";
+import Link from "next/link";
+import { FooterLinks } from "../../../data/links";
 
 const FooterContainer = () => {
-  const categoriesMetadata = getCategoriesMetadata();
+  const categories = getCategories();
 
   const socialMediaLinks = () => (
     <nav className="text-sm">
@@ -23,13 +23,12 @@ const FooterContainer = () => {
       </ul>
     </nav>
   );
-
   const categoryLinks = () => (
     <div className="text-center">
       <p className="font-semibold pb-2">دسته بندی ها</p>
       <nav className="text-sm">
         <ul>
-          {categoriesMetadata.slice(0, 4).map((category) => (
+          {categories.slice(0, 4).map((category) => (
             <li key={category.slug}>
               <Link
                 className="hover:underline block p-1"
@@ -76,7 +75,7 @@ const FooterContainer = () => {
   );
 
   return (
-    <footer className="bg-black text-white rounded-lg">
+    <footer className="bg-slate-800 text-white rounded-lg">
       <div className="max-w-screen-2xl mx-auto py-10 px-4 grid gap-10 lg:grid-cols-3">
         <div>
           <p className="text-center font-bold">
@@ -92,7 +91,7 @@ const FooterContainer = () => {
           {footerLinks()}
         </div>
       </div>
-      <div className="py-4 border-t border-gray-200">
+      <div className="py-4 border-t border-slate-700">
         <p className="text-center text-xs">Made With ❤️ By Hossein-i</p>
       </div>
     </footer>

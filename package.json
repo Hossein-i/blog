@@ -16,6 +16,8 @@
     "autoprefixer": "10.4.14",
     "gray-matter": "^4.0.3",
     "markdown-to-jsx": "^7.2.1",
+    "moment": "^2.29.4",
+    "moment-jalaali": "^0.10.0",
     "next": "13.4.8",
     "next-themes": "^0.2.1",
     "postcss": "8.4.24",
@@ -26,6 +28,7 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.9",
+    "@types/moment-jalaali": "^0.7.6",
     "eslint": "8.44.0",
     "eslint-config-next": "13.4.8",
     "eslint-config-prettier": "^8.8.0",

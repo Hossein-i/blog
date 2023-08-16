@@ -15,10 +15,13 @@ const HeaderContainer = () => {
             <div>
               <MenuComponent />
             </div>
-            <div className="grid md:-rotate-90 md:w-11 whitespace-nowrap">
+            <Link
+              href="/"
+              className="grid md:-rotate-90 md:w-11 whitespace-nowrap"
+            >
               <span className="text-xl">حسین حسینی</span>
               <span className="text-xs">توسعه دهنده وب</span>
-            </div>
+            </Link>
           </div>
           <div className="hidden md:grid justify-center py-2 w-full bg-slate-200 dark:bg-slate-700 rounded-lg">
             {FooterLinks.filter((footerItem) =>

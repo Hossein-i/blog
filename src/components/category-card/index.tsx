@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { CategoryMetadata } from "@/utils/getDocsMetadata";
+import { CategoryMetadata } from "@/utils/getData";
 
 const CategoryCardComponent = (category: CategoryMetadata) => {
   return (

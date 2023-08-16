@@ -5,14 +5,13 @@ import CategoryCardsComponent from "@/components/category-cards";
 import Section from "@/components/section";
 import HeroHeaderContainer from "@/containers/hero-header";
 import {
-  getArticlesMetadataByCategory,
-  getCategoriesMetadata,
-} from "@/utils/getDocsMetadata";
+  getArticlesByCategory, getCategories,
+} from "@/utils/getData";
 
 const HomePage = () => {
   const categoryCards = () => (
     <CategoryCardsComponent>
-      {getCategoriesMetadata()
+      {getCategories()
         .slice(0, 4)
         .map((category) => (
           <CategoryCardComponent key={category.slug} {...category} />
@@ -21,7 +20,7 @@ const HomePage = () => {
   );
   const articleCards = (category: string) => (
     <ArticleCardsComponent>
-      {getArticlesMetadataByCategory(category)
+      {getArticlesByCategory(category)
         .slice(0, 4)
         .map((article) => (
           <ArticleCardComponent key={article.slug} article={article} />
@@ -40,7 +39,7 @@ const HomePage = () => {
           {articleCards("")}
         </Section.SectionWrapperComponent>
       </Section>
-      {getCategoriesMetadata()
+      {getCategories()
         .slice(0, 4)
         .map((category) => (
           <Section key={category.slug}>

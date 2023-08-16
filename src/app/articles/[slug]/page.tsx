@@ -1,11 +1,11 @@
 import Section from "@/components/section";
-import {
-  getArticleMetadata,
-  getArticlesMetadata,
-} from "@/utils/getDocsMetadata";
+import { getArticle, getArticles } from "@/utils/getData";
 import Markdown from "markdown-to-jsx";
+import moment from "moment-jalaali";
 import { Metadata } from "next";
 import Image from "next/image";
+
+moment.loadPersian({ dialect: "persian-modern" });
 
 type Props = {
   params: { slug: string };
@@ -13,7 +13,7 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const slug = params.slug;
-  const article = getArticleMetadata(slug);
+  const article = getArticle(slug);
 
   return {
     title: article.title,
@@ -22,11 +22,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export const generateStaticParams = async () =>
-  getArticlesMetadata().map((article) => ({ slug: article.slug }));
+  getArticles().map((article) => ({ slug: article.slug }));
 
 const ArticlePage = (props: any) => {
   const slug = props.params.slug;
-  const article = getArticleMetadata(slug);
+  const article = getArticle(slug);
 
   return (
     <Section>
@@ -37,10 +37,10 @@ const ArticlePage = (props: any) => {
               <div>
                 <h1>{article.title}</h1>
                 <p>{article.description}</p>
-                <div className="flex justify-center items-center gap-2 not-prose text-sm">
+                <div className="flex justify-center items-center gap-2 not-prose text-sm text-slate-500">
                   <p>{article.timeToRead}</p>
                   <span className="p-[2px] bg-slate-500 rounded-full"></span>
-                  <p>{new Date(article.date).toDateString().slice(0, 11)}</p>
+                  <p>{moment(article.date).format("jDD jMMMM, jYYYY")}</p>
                 </div>
               </div>
               <div>
@@ -54,7 +54,7 @@ const ArticlePage = (props: any) => {
               </div>
             </div>
             <div className="bg-white dark:bg-slate-800 p-4 rounded-lg">
-              <Markdown>{article.content}</Markdown>
+              <Markdown>{article.content || ""}</Markdown>
             </div>
           </article>
         </div>

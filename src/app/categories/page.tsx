@@ -1,17 +1,15 @@
 import CategoryCardComponent from "@/components/category-card";
 import CategoryCardsComponent from "@/components/category-cards";
 import Section from "@/components/section";
-import { getCategoriesMetadata } from "@/utils/getDocsMetadata";
+import { getCategories } from "@/utils/getData";
 
 const CategoriesPage = () => {
-  const categoriesMetadata = getCategoriesMetadata();
-
   return (
     <Section>
       <Section.SectionWrapperComponent className="pt-2 pb-2">
         <Section.SectionHeaderComponent title="دسته بندی ها" />
         <CategoryCardsComponent>
-          {categoriesMetadata
+          {getCategories()
             .sort((a, b) => (a.index > b.index ? 1 : -1))
             .slice(0, 4)
             .map((category) => (

@@ -1,9 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArticleMetadata } from "@/utils/getDocsMetadata";
+import moment from "moment-jalaali";
+import { IArticle } from "@/utils/interfaces";
+
+moment.loadPersian({ dialect: "persian-modern" });
 
 type Props = {
-  article: ArticleMetadata;
+  article: IArticle;
 };
 
 const ArticleCardComponent = ({ article }: Props) => {
@@ -17,7 +20,9 @@ const ArticleCardComponent = ({ article }: Props) => {
         <div className="flex justify-between items-center text-sm text-gray-500">
           <span>{article.timeToRead}</span>
           <span className="bg-gray-500 w-1 h-1 rounded-full"></span>
-          <span>{new Date(article.date).toDateString().slice(0, 11)}</span>
+          <span>
+            {moment(article.date).format("jDD jMMMM, jYYYY")}
+          </span>
         </div>
         <h3 className="md:text-lg lg:text-xl font-bold">{article.title}</h3>
         <p className="text-sm md:text-base text-gray-500">
