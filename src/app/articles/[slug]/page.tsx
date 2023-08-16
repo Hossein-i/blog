@@ -30,15 +30,22 @@ export async function generateMetadata(
       title: article.title,
       description: article.description,
       url: `https://hossein-i.ir/articles/${article.slug}`,
+      siteName: "Hossein-i",
       type: "article",
       publishedTime: article.date.toISOString(),
       authors: ["Hossein-i"],
       images: [article.image, ...previousImages],
+      locale: "fa_IR",
     },
     twitter: {
+      card: "summary_large_image",
       title: article.title,
       description: article.description,
       images: [article.image, ...previousImages],
+      site: "",
+      siteId: "",
+      creator: "",
+      creatorId: "",
     },
   };
 }
