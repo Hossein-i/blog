@@ -29,7 +29,7 @@ export async function generateMetadata(
     openGraph: {
       title: article.title,
       description: article.description,
-      url: `https://hossein-i.ir/articles/${article.slug}`,
+      url: `/articles/${article.slug}`,
       siteName: "Hossein-i",
       type: "article",
       publishedTime: article.date.toISOString(),

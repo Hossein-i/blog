@@ -31,7 +31,7 @@ export async function generateMetadata(
     openGraph: {
       title: category.title,
       description: category.description,
-      url: `https://hossein-i.ir/articles/${category.slug}`,
+      url: `/articles/${category.slug}`,
       siteName: "Hossein-i",
       type: "website",
       images: [category.image],
