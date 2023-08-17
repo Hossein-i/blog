@@ -19,7 +19,7 @@ export async function generateMetadata(
   const article = getArticle(slug);
 
   const previousKeywords = (await parent)?.keywords || [];
-  const previousImages = (await parent)?.openGraph?.images || [];
+  // const previousImages = (await parent)?.openGraph?.images || [];
 
   return {
     title: article.title,
@@ -34,14 +34,14 @@ export async function generateMetadata(
       type: "article",
       publishedTime: article.date.toISOString(),
       authors: ["Hossein-i"],
-      images: [article.image, ...previousImages],
+      images: [article.image],
       locale: "fa_IR",
     },
     twitter: {
       card: "summary_large_image",
       title: article.title,
       description: article.description,
-      images: [article.image, ...previousImages],
+      images: [article.image],
       site: "",
       siteId: "",
       creator: "",

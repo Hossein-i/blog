@@ -21,7 +21,7 @@ export async function generateMetadata(
   const category = getCategory(slug);
 
   const previousKeywords = (await parent)?.keywords || [];
-  const previousImages = (await parent)?.openGraph?.images || [];
+  // const previousImages = (await parent)?.openGraph?.images || [];
 
   return {
     title: category.title,
@@ -34,14 +34,14 @@ export async function generateMetadata(
       url: `https://hossein-i.ir/articles/${category.slug}`,
       siteName: "Hossein-i",
       type: "website",
-      images: [category.image, ...previousImages],
+      images: [category.image],
       locale: "fa_IR",
     },
     twitter: {
       card: "summary_large_image",
       title: category.title,
       description: category.description,
-      images: [category.image, ...previousImages],
+      images: [category.image],
       site: "",
       siteId: "",
       creator: "",
