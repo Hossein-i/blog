@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     },
     {
       media: "(prefers-color-scheme: dark)",
-      color: "slate",
+      color: "black",
     },
   ],
   robots: {
@@ -107,7 +107,7 @@ export const metadata: Metadata = {
     creatorId: "",
     images: ["/images/avatar.png"],
   },
-  authors: [{ name: "Hossein-i", url: "/" }],
+  authors: [{ name: "Hossein-i", url: "https://hossein-i.ir/" }],
   creator: "Hossein-i",
   // publisher: "Hossein-i",
   keywords: [

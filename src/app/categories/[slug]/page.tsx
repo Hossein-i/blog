@@ -24,6 +24,9 @@ export async function generateMetadata(
   // const previousImages = (await parent)?.openGraph?.images || [];
 
   return {
+    alternates: {
+      canonical: `/categories/${category.slug}`,
+    },
     title: category.title,
     description: category.description,
     category: category.title,

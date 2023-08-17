@@ -5,6 +5,9 @@ import { getCategories } from "@/utils/getData";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/categories/",
+  },
   title: "دسته بندی ها",
 };
 
