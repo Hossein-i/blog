@@ -107,6 +107,9 @@ export const metadata: Metadata = {
     creatorId: "",
     images: ["/images/avatar.png"],
   },
+  other: {
+    "telegram:channel": "@hossein_i_channel",
+  },
   authors: [{ name: "Hossein-i", url: "https://hossein-i.ir/" }],
   creator: "Hossein-i",
   // publisher: "Hossein-i",
