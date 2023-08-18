@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     },
     {
       media: "(prefers-color-scheme: dark)",
-      color: "slate",
+      color: "black",
     },
   ],
   robots: {
@@ -87,7 +87,7 @@ export const metadata: Metadata = {
     },
     description:
       "سلام خوش اومدی، من حسین هستم .توسعه دهنده وب در این وبلاگ نکات و ترفندها، فریمورک ها، پروژه ها، آموزش ها و غیره را به اشتراک می گذارم.",
-    url: "https://hossein-i.ir/",
+    url: "/",
     siteName: "Hossein-i",
     images: ["/images/avatar.png"],
     locale: "fa_IR",
@@ -106,6 +106,9 @@ export const metadata: Metadata = {
     creator: "",
     creatorId: "",
     images: ["/images/avatar.png"],
+  },
+  other: {
+    "telegram:channel": "@hossein_i_channel",
   },
   authors: [{ name: "Hossein-i", url: "https://hossein-i.ir/" }],
   creator: "Hossein-i",

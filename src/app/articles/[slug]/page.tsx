@@ -22,6 +22,9 @@ export async function generateMetadata(
   // const previousImages = (await parent)?.openGraph?.images || [];
 
   return {
+    alternates: {
+      canonical: `/articles/${article.slug}`,
+    },
     title: article.title,
     description: article.description,
     category: article.categories.at(0),
@@ -29,7 +32,7 @@ export async function generateMetadata(
     openGraph: {
       title: article.title,
       description: article.description,
-      url: `https://hossein-i.ir/articles/${article.slug}`,
+      url: `/articles/${article.slug}`,
       siteName: "Hossein-i",
       type: "article",
       publishedTime: article.date.toISOString(),
