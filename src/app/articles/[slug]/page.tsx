@@ -1,9 +1,12 @@
 import Section from "@/components/section";
+import Icon from "@/icons";
 import { getArticle, getArticles } from "@/utils/getData";
+import { LinkIcon } from "@heroicons/react/24/outline";
 import Markdown from "markdown-to-jsx";
 import moment from "moment-jalaali";
 import { Metadata, ResolvingMetadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 
 moment.loadPersian({ dialect: "persian-modern" });
 
@@ -44,7 +47,7 @@ export async function generateMetadata(
       card: "summary_large_image",
       title: article.title,
       description: article.description,
-      images: [article.image],
+      images: [{ url: article.image, alt: "" }],
       site: "",
       siteId: "",
       creator: "",
@@ -63,37 +66,70 @@ const ArticlePage = (props: any) => {
   return (
     <Section>
       <Section.SectionWrapperComponent className="pt-0 pb-0">
-        <div className="">
-          <article className="max-w-none prose lg:prose-xl prose-img:rounded-lg dark:prose-headings:text-white dark:prose-p:text-slate-500">
-            <div className="bg-white dark:bg-slate-800 p-4 mb-4 rounded-lg grid text-center">
-              <div>
-                <h1>{article.title}</h1>
-                <p>{article.description}</p>
-                <div className="flex justify-center items-center gap-2 not-prose text-sm text-slate-500">
-                  <p>{article.timeToRead}</p>
-                  <span className="p-[2px] bg-slate-500 rounded-full"></span>
-                  <p>{moment(article.date).format("jDD jMMMM, jYYYY")}</p>
+        <div className="grid lg:grid-cols-5 gap-4">
+          <div className="lg:col-span-3">
+            <article className="max-w-none prose lg:prose-xl prose-img:rounded-lg dark:prose-headings:text-white dark:prose-p:text-slate-500">
+              <div className="bg-white dark:bg-slate-800 p-4 rounded-lg">
+                <div>
+                  <h1>{article.title}</h1>
+                  <p>{article.description}</p>
+                  <div className="flex justify-between items-center not-prose text-sm text-slate-500">
+                    <div className="flex items-center gap-2">
+                      <p>{article.timeToRead}</p>
+                      <span className="p-[2px] bg-slate-500 rounded-full"></span>
+                      <p>{moment(article.date).format("jDD jMMMM jYYYY")}</p>
+                    </div>
+                    <div className="flex gap-4">
+                      <button>
+                        <LinkIcon className="w-5 h-5" />
+                      </button>
+                      <Link
+                        href={`https://telegram.me/share/url?url=https://hossein-i.ir/articles/${article.slug}`}
+                        target="_blank"
+                      >
+                        {Icon("Telegram")}
+                      </Link>
+                      <Link
+                        href={`http://twitter.com/share?url=https://hossein-i.ir/articles/${
+                          article.slug
+                        }&hashtags=${article.categories.join(",")}`}
+                        target="_blank"
+                      >
+                        {Icon("Twitter")}
+                      </Link>
+                      <Link
+                        href={`https://www.linkedin.com/sharing/share-offsite/?url=https://hossein-i.ir/articles/${article.slug}`}
+                        target="_blank"
+                      >
+                        {Icon("LinkedIn")}
+                      </Link>
+                    </div>
+                  </div>
                 </div>
+                <div>
+                  <Image
+                    src={article.image}
+                    alt={article.title}
+                    width={250}
+                    height={250}
+                    className="w-full"
+                  />
+                </div>
+                <Markdown>{article.content || ""}</Markdown>
               </div>
-              <div>
-                <Image
-                  src={article.image}
-                  alt={article.title}
-                  width={250}
-                  height={250}
-                  className="w-full"
-                />
-              </div>
-            </div>
-            <div className="bg-white dark:bg-slate-800 p-4 rounded-lg">
-              <Markdown>{article.content || ""}</Markdown>
-            </div>
-          </article>
+            </article>
+          </div>
+          <div className="lg:col-span-2">
+            <div className="p-4 bg-white dark:bg-slate-800 rounded-lg lg:sticky top-4"></div>
+          </div>
         </div>
-        {/* <div className=""></div> */}
       </Section.SectionWrapperComponent>
     </Section>
   );
 };
 
 export default ArticlePage;
+
+// https://telegram.me/share/url?url=<URL>&text=<TEXT>
+// http://twitter.com/share?text=text goes here&url=http://url goes here&hashtags=hashtag1,hashtag2,hashtag3
+// https://www.linkedin.com/sharing/share-offsite/?url={url}

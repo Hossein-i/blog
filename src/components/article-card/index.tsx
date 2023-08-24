@@ -21,7 +21,7 @@ const ArticleCardComponent = ({ article }: Props) => {
           <span>{article.timeToRead}</span>
           <span className="bg-gray-500 w-1 h-1 rounded-full"></span>
           <span>
-            {moment(article.date).format("jDD jMMMM, jYYYY")}
+            {moment(article.date).format("jDD jMMMM jYYYY")}
           </span>
         </div>
         <h3 className="md:text-lg lg:text-xl font-bold">{article.title}</h3>

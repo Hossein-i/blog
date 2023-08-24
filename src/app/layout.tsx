@@ -23,7 +23,6 @@ export const metadata: Metadata = {
   viewport: {
     width: "device-width",
     initialScale: 1,
-    maximumScale: 1,
   },
   colorScheme: "normal",
   themeColor: [
@@ -37,16 +36,19 @@ export const metadata: Metadata = {
     },
   ],
   robots: {
-    index: true,
-    follow: true,
-    nocache: true,
+    // index: true,
+    // follow: true,
+    // nocache: true,
+    "max-image-preview": "large",
+    "max-snippet": -1,
+    "max-video-preview": -1,
     googleBot: {
-      index: true,
-      follow: true,
-      noimageindex: true,
-      "max-video-preview": -1,
+      // index: true,
+      // follow: true,
+      // noimageindex: true,
       "max-image-preview": "large",
       "max-snippet": -1,
+      "max-video-preview": -1,
     },
   },
   // icons: {
@@ -101,11 +103,11 @@ export const metadata: Metadata = {
     },
     description:
       "سلام خوش اومدی، من حسین هستم .توسعه دهنده وب در این وبلاگ نکات و ترفندها، فریمورک ها، پروژه ها، آموزش ها و غیره را به اشتراک می گذارم.",
+    images: [{ url: "/images/avatar.png", alt: "Hossein-i" }],
     site: "",
     siteId: "",
     creator: "",
     creatorId: "",
-    images: ["/images/avatar.png"],
   },
   other: {
     "telegram:channel": "@hossein_i_channel",
